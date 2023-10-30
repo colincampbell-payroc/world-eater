@@ -9,8 +9,9 @@ sub get_all {
             '/home/user', 
             '/home/user2', 
         ],
-        grep_command => 'grep -irs --exclude="*jquery*" --exclude="*\.20*" --exclude-dir="*jquery*" --exclude-dir="log" --exclude-dir="logs" -E',
-        greps        => [
+        grep_command =>
+            'grep -irs --exclude="*jquery*" --exclude="*\.20*" --exclude-dir="*jquery*" --exclude-dir="log*" --exclude-dir="logs" --exclude-dir=session* --exclude-dir=perl5 --exclude-dir=perlbrew --exclude-dir=.cpan* --exclude-dir=user_files --exclude=*.gz --exclude=.* --exclude=*.dump --exclude=*.gpg --exclude=*.log  --exclude=*.pdf  --exclude=*.jpg  --exclude=*.png --exclude=log*.txt -E',
+        greps => [
             {   filter => 'DBI:',
                 type   => 'dbi',
             },
