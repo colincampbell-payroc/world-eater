@@ -5,35 +5,88 @@ use warnings;
 
 sub get_all {
     return {
-        directories  => [ 
-            '/home/user', 
-            '/home/user2', 
-        ],
-        grep_command =>
-            'grep -irs --exclude="*jquery*" --exclude="*\.20*" --exclude-dir="*jquery*" --exclude-dir="log*" --exclude-dir="logs" --exclude-dir=session* --exclude-dir=perl5 --exclude-dir=perlbrew --exclude-dir=.cpan* --exclude-dir=user_files --exclude=*.gz --exclude=.* --exclude=*.dump --exclude=*.gpg --exclude=*.log  --exclude=*.pdf  --exclude=*.jpg  --exclude=*.png --exclude=log*.txt -E',
+        directories => {
+            lt3        => [qw{ /home/cardinfo /home/lantrans }],
+            lt3shared  => [qw{ /home/lantrans }],
+            pad        => [qw{ /home/padapi }],
+            portal     => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            q          => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            q2         => [qw{ /home/dbsync }],
+            'repay-12' => [qw{ /home/repay /home/trans-risk }],
+            step1      => [qw{ /home/hpp /home/hppv3 }],
+            tokenator  => [qw{ /home/report /home/tokenator }],
+        },
+        grep => {
+            command => 'grep',
+            options => [
+                qw/
+                    -irs
+                    -E
+                    --exclude-dir=.cpan*
+                    --exclude-dir=.svn
+                    --exclude-dir=jquery*
+                    --exclude-dir=local
+                    --exclude-dir=log*
+                    --exclude-dir=mcf
+                    --exclude-dir=perl5
+                    --exclude-dir=perlbrew
+                    --exclude-dir=session*
+                    --exclude-dir=user_files
+                    --exclude=.*
+                    --exclude=*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+                    --exclude=*.dump
+                    --exclude=*.gpg
+                    --exclude=*.gz
+                    --exclude=*.jpg
+                    --exclude=*.log
+                    --exclude=*.pdf
+                    --exclude=*.png
+                    --exclude=*.tgz
+                    --exclude=*jquery*.css
+                    --exclude=*jquery*.js
+                    --exclude=log*.txt
+                    /
+            ],
+        },
         greps => [
-            {   filter => 'DBI:',
+            {
+                filter => 'dbi->connect',
                 type   => 'dbi',
             },
-            {   filter => 'host',
+            {
+                filter => 'DBI:',
+                type   => 'dbi',
+            },
+            {
+                filter => 'psql',
+                type   => 'psql',
+            },
+            {
+                filter => 'host',
                 type   => 'host',
             },
-            {   filter => 'ssh',
+            {
+                filter => 'ssh',
                 type   => 'ssh',
             },
-            {   filter => 'scp',
+            {
+                filter => 'scp',
                 type   => 'scp',
             },
-            {   filter => 'sftp',
+            {
+                filter => 'sftp',
                 type   => 'sftp',
             },
-            {   filter => 'rsync',
+            {
+                filter => 'rsync',
                 type   => 'rsync',
             },
-            {   filter => 'http',
+            {
+                filter => 'http',
                 type   => 'http',
             },
-            {   filter => '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b',
+            {
+                filter => '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b',
                 type   => 'ip',
             },
         ]
