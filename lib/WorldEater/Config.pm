@@ -7,9 +7,13 @@ sub get_all {
     return {
         directories => {
             adminweb => [
-                qw{/home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul }
+                qw{
+                    /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf 
+                    /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
+                }
             ],
             api        => [qw {/home/boardingapi /home/paymentapi}],
+            authproxy  => [qw {/home/authproxy}],
             lt3        => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared  => [qw{ /home/lantrans }],
             pad        => [qw{ /home/padapi }],
