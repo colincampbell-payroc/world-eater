@@ -32,6 +32,7 @@ sub get_all {
             dfsadmin                  => [qw{/home/discadmin /home/lansweeper /home/zuul}],
             'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
             'discover-portal-staging' => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],
+            'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
             lt3                       => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared                 => [qw{ /home/lantrans }],
             pad                       => [qw{ /home/padapi }],
