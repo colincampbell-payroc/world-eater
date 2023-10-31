@@ -12,8 +12,8 @@ sub get_all {
                     /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
                 }
             ],
-            api         => [qw {/home/boardingapi /home/paymentapi}],
-            authproxy   => [qw {/home/authproxy}],
+            api         => [qw{/home/boardingapi /home/paymentapi}],
+            authproxy   => [qw{/home/authproxy}],
             batchmaster => [qw{/home/bluefin /home/ccs /home/hsm /home/lansweeper /home/mcrd /home/mip /home/monitor /home/postgres /home/visa /home/zuul}],
             ccs1        => [
                 qw{
@@ -21,7 +21,8 @@ sub get_all {
                     /home/tsys /home/watcher /home/wiki/
                 }
             ],
-            clortho    => [qw {/home/clortho /home/lansweeper}],
+            clortho    => [qw{/home/clortho /home/lansweeper}],
+            dashboard  => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
             lt3        => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared  => [qw{ /home/lantrans }],
             pad        => [qw{ /home/padapi }],
