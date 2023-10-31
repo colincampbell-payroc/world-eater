@@ -15,15 +15,21 @@ sub get_all {
             api         => [qw {/home/boardingapi /home/paymentapi}],
             authproxy   => [qw {/home/authproxy}],
             batchmaster => [qw{/home/bluefin /home/ccs /home/hsm /home/lansweeper /home/mcrd /home/mip /home/monitor /home/postgres /home/visa /home/zuul}],
-            lt3         => [qw{ /home/cardinfo /home/lantrans }],
-            lt3shared   => [qw{ /home/lantrans }],
-            pad         => [qw{ /home/padapi }],
-            portal      => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
-            q           => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            q2          => [qw{ /home/dbsync }],
-            'repay-12'  => [qw{ /home/repay /home/trans-risk }],
-            step1       => [qw{ /home/hpp /home/hppv3 }],
-            tokenator   => [qw{ /home/report /home/tokenator }],
+            ccs1        => [
+                qw{
+                    /home/abbas /home/backup /home/checkvpn /home/codereview /home/htmlstats /home/lansweeper /home/mip /home/reports /home/rsnapp
+                    /home/tsys /home/watcher /home/wiki/
+                }
+            ],
+            lt3        => [qw{ /home/cardinfo /home/lantrans }],
+            lt3shared  => [qw{ /home/lantrans }],
+            pad        => [qw{ /home/padapi }],
+            portal     => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            q          => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            q2         => [qw{ /home/dbsync }],
+            'repay-12' => [qw{ /home/repay /home/trans-risk }],
+            step1      => [qw{ /home/hpp /home/hppv3 }],
+            tokenator  => [qw{ /home/report /home/tokenator }],
         },
         grep => {
             command => 'grep',
