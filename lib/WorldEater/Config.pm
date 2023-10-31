@@ -21,24 +21,25 @@ sub get_all {
                     /home/tsys /home/watcher /home/wiki/
                 }
             ],
-            clortho    => [qw{/home/clortho /home/lansweeper}],
-            dashboard  => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
-            deposit    => [
+            clortho   => [qw{/home/clortho /home/lansweeper}],
+            dashboard => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
+            deposit   => [
                 qw{
-                    /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun 
+                    /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun
                     /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
                 }
             ],
-            dfsadmin   => [qw{/home/discadmin /home/lansweeper /home/zuul}],
-            lt3        => [qw{ /home/cardinfo /home/lantrans }],
-            lt3shared  => [qw{ /home/lantrans }],
-            pad        => [qw{ /home/padapi }],
-            portal     => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
-            q          => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            q2         => [qw{ /home/dbsync }],
-            'repay-12' => [qw{ /home/repay /home/trans-risk }],
-            step1      => [qw{ /home/hpp /home/hppv3 }],
-            tokenator  => [qw{ /home/report /home/tokenator }],
+            dfsadmin          => [qw{/home/discadmin /home/lansweeper /home/zuul}],
+            'Discover-portal' => [qw{/home/lansweeper /home/web_portal}],
+            lt3               => [qw{ /home/cardinfo /home/lantrans }],
+            lt3shared         => [qw{ /home/lantrans }],
+            pad               => [qw{ /home/padapi }],
+            portal            => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            q                 => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            q2                => [qw{ /home/dbsync }],
+            'repay-12'        => [qw{ /home/repay /home/trans-risk }],
+            step1             => [qw{ /home/hpp /home/hppv3 }],
+            tokenator         => [qw{ /home/report /home/tokenator }],
         },
         grep => {
             command => 'grep',
@@ -63,6 +64,7 @@ sub get_all {
                     --exclude-dir=temp
                     --exclude-dir=test
                     --exclude-dir=tmp
+                    --exclude-dir=lansweeper
                     --exclude=.*
                     --exclude=*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
                     --exclude=*.dump
