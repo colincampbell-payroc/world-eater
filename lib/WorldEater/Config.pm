@@ -29,6 +29,7 @@ sub get_all {
                     /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
                 }
             ],
+            dfsadmin   => [qw{/home/discadmin /home/lansweeper /home/zuul}],
             lt3        => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared  => [qw{ /home/lantrans }],
             pad        => [qw{ /home/padapi }],
