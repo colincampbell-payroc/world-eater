@@ -21,6 +21,7 @@ sub get_all {
                     /home/tsys /home/watcher /home/wiki/
                 }
             ],
+            clortho    => [qw {/home/clortho /home/lansweeper}],
             lt3        => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared  => [qw{ /home/lantrans }],
             pad        => [qw{ /home/padapi }],
