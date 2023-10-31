@@ -8,21 +8,22 @@ sub get_all {
         directories => {
             adminweb => [
                 qw{
-                    /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf 
+                    /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
                     /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
                 }
             ],
-            api        => [qw {/home/boardingapi /home/paymentapi}],
-            authproxy  => [qw {/home/authproxy}],
-            lt3        => [qw{ /home/cardinfo /home/lantrans }],
-            lt3shared  => [qw{ /home/lantrans }],
-            pad        => [qw{ /home/padapi }],
-            portal     => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
-            q          => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            q2         => [qw{ /home/dbsync }],
-            'repay-12' => [qw{ /home/repay /home/trans-risk }],
-            step1      => [qw{ /home/hpp /home/hppv3 }],
-            tokenator  => [qw{ /home/report /home/tokenator }],
+            api         => [qw {/home/boardingapi /home/paymentapi}],
+            authproxy   => [qw {/home/authproxy}],
+            batchmaster => [qw{/home/bluefin /home/ccs /home/hsm /home/lansweeper /home/mcrd /home/mip /home/monitor /home/postgres /home/visa /home/zuul}],
+            lt3         => [qw{ /home/cardinfo /home/lantrans }],
+            lt3shared   => [qw{ /home/lantrans }],
+            pad         => [qw{ /home/padapi }],
+            portal      => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            q           => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            q2          => [qw{ /home/dbsync }],
+            'repay-12'  => [qw{ /home/repay /home/trans-risk }],
+            step1       => [qw{ /home/hpp /home/hppv3 }],
+            tokenator   => [qw{ /home/report /home/tokenator }],
         },
         grep => {
             command => 'grep',
