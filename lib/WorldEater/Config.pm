@@ -23,6 +23,12 @@ sub get_all {
             ],
             clortho    => [qw{/home/clortho /home/lansweeper}],
             dashboard  => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
+            deposit    => [
+                qw{
+                    /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun 
+                    /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
+                }
+            ],
             lt3        => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared  => [qw{ /home/lantrans }],
             pad        => [qw{ /home/padapi }],
@@ -49,6 +55,13 @@ sub get_all {
                     --exclude-dir=perlbrew
                     --exclude-dir=session*
                     --exclude-dir=user_files
+                    --exclude-dir=logs
+                    --exclude-dir=report
+                    --exclude-dir=report_out
+                    --exclude-dir=reports
+                    --exclude-dir=temp
+                    --exclude-dir=test
+                    --exclude-dir=tmp
                     --exclude=.*
                     --exclude=*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
                     --exclude=*.dump
