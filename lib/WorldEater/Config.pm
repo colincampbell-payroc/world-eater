@@ -34,6 +34,7 @@ sub get_all {
             'discover-portal-staging' => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],
             'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
             glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data}],
+            hsm                       => [qw{/home/hsm /home/lansweeper}],
             lt3                       => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared                 => [qw{ /home/lantrans }],
             pad                       => [qw{ /home/padapi }],
