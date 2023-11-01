@@ -33,6 +33,7 @@ sub get_all {
             'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
             'discover-portal-staging' => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],
             'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
+            glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data}],
             lt3                       => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared                 => [qw{ /home/lantrans }],
             pad                       => [qw{ /home/padapi }],
@@ -67,6 +68,11 @@ sub get_all {
                     --exclude-dir=test
                     --exclude-dir=tmp
                     --exclude-dir=lansweeper
+                    --exclude-dir=files
+                    --exclude-dir=archive
+                    --exclude-dir=archive.bak
+                    --exclude-dir=outbox
+                    --exclude-dir=tem0805
                     --exclude=.*
                     --exclude=*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
                     --exclude=*.dump
@@ -80,6 +86,11 @@ sub get_all {
                     --exclude=*jquery*.css
                     --exclude=*jquery*.js
                     --exclude=log*.txt
+                    --exclude=*.list
+                    --exclude=nohup.out
+                    --exclude=*.csv
+                    --exclude=*.xml
+                    --exclude=*.response
                     /
             ],
         },
