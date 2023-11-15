@@ -40,7 +40,7 @@ foreach my $directory ( @{ $config{directories}{$host} } ) {
     foreach my $grep ( @{ $config{greps} } ) {
         my $grep_filter = $grep->{filter};
         my $grep_type   = $grep->{type};
-        my $output      = `$grep_command $grep_options '$grep_filter' $directory`;
+        my $output      = `cd $directory && $grep_command $grep_options '$grep_filter' .`;
 
         open( my $results_fh, '>>', "$results_directory/$grep_type.txt" ) or die $!;
 
