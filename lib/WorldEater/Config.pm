@@ -33,7 +33,7 @@ sub get_all {
             'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
             'discover-portal-staging' => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],
             'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
-            glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data}],
+            glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
             hsm                       => [qw{/home/hsm /home/lansweeper}],
             lt3                       => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared                 => [qw{ /home/lantrans }],
@@ -96,44 +96,34 @@ sub get_all {
             ],
         },
         greps => [
-            {
-                filter => 'dbi->connect',
+            {   filter => 'dbi->connect',
                 type   => 'dbi',
             },
-            {
-                filter => 'DBI:',
+            {   filter => 'DBI:',
                 type   => 'dbi',
             },
-            {
-                filter => 'psql',
+            {   filter => 'psql',
                 type   => 'psql',
             },
-            {
-                filter => 'host',
+            {   filter => 'host',
                 type   => 'host',
             },
-            {
-                filter => 'ssh',
+            {   filter => 'ssh',
                 type   => 'ssh',
             },
-            {
-                filter => 'scp',
+            {   filter => 'scp',
                 type   => 'scp',
             },
-            {
-                filter => 'sftp',
+            {   filter => 'sftp',
                 type   => 'sftp',
             },
-            {
-                filter => 'rsync',
+            {   filter => 'rsync',
                 type   => 'rsync',
             },
-            {
-                filter => 'http',
+            {   filter => 'http',
                 type   => 'http',
             },
-            {
-                filter => '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b',
+            {   filter => '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b',
                 type   => 'ip',
             },
         ]
