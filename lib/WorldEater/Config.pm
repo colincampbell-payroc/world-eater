@@ -126,7 +126,16 @@ sub get_all {
             {   filter => '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b',
                 type   => 'ip',
             },
-        ]
+        ],
+        applications => [
+            {   name        => 'batch_upload_admin',
+                repo_url    => 'git@github.com:payroc/caledon-ui-glxairadmin.git',
+                server      => 'adminweb',
+                path        => '/home/batchupload/batch_upload_admin',
+                ignore_list => [qw{ log session storage }]
+            }
+        ],
+        applications_ignore_list => [qw{ *.old }]
     };
 }
 
