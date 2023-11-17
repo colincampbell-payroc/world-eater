@@ -135,6 +135,51 @@ sub get_all {
                 path_on_server     => '/home/batchupload/batch_upload_admin',
                 ignore_list        => [qw{ log session storage }]
             },
+            {   name               => 'boarding',
+                repo_url           => 'git@github.com:payroc/caledon-ui-boarding.git',
+                repo_sub_directory => '',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/boarding',
+                ignore_list        => [
+                    qw{ archive_cleanup.sh backup_boarding.sh Boarding_api_auto_approval Boarding_backup Boarding_files Boarding_key Boarding_keys Boarding_log
+                        cron_move_logv2.sh eng_3702 }
+                ]
+            },
+            {   name               => 'boarding_api_auto_approval',
+                repo_url           => 'git@github.com:payroc/caledon-service-boarding-autoapproval.git',
+                repo_sub_directory => '/Boarding_api_auto_approval',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/boarding/Boarding_api_auto_approval',
+                ignore_list        => [qw{ log }]
+            },
+            {   name               => 'discover-portal-admin',
+                repo_url           => 'git@github.com:payroc/cal-app-dss.git',
+                repo_sub_directory => '/src/caledon-ui-discover_portal_admin',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/discoverportal',
+                ignore_list        => [qw{ logs html/discadmin }]
+            },
+            {   name               => 'mcf',
+                repo_url           => 'git@github.com:payroc/caledon-ui-mcf.git',
+                repo_sub_directory => '',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/mcf/mcflive',
+                ignore_list        => [qw{ log }]
+            },
+            {   name               => 'monitors',
+                repo_url           => 'git@github.com:payroc/Caledon-Monitors-Redundant.git',
+                repo_sub_directory => '/monitors',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/monitor/monitors',
+                ignore_list        => [qw{ logs }]
+            },
+            {   name               => 'pad',
+                repo_url           => 'git@github.com:payroc/caledon-ui-padadmin.git',
+                repo_sub_directory => '/pad',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/pad',
+                ignore_list        => [qw{ keys log }]
+            },
             {   name               => 'discover-portal',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
                 repo_sub_directory => '/src/caledon-ui-discover_portal',
@@ -146,7 +191,8 @@ sub get_all {
             }
         ],
         applications_ignore_list => [
-            qw{ *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t }
+            qw{ *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+                *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn }
         ]
     };
 }

@@ -31,7 +31,7 @@ foreach my $application ( @{ $config{applications} } ) {
 
 # warn
 #     "rsync -vvv -r $exclude_flags -e \"ssh -t ccampbell\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}";
-
+# next;
     `rsync -r $exclude_flags -e "ssh -t ccampbell\@bounce.caledoncard.com ssh -t" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}`;
 
     if ( exists( $application->{extra_paths} ) ) {
