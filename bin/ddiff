@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+SHOW_DIFF=0
+SUPPRESS_DESTINATION_ONLY_WARNINGS=0
+FILE_PATH_ONLY=0
+
+while getopts dsn flag
+do
+    case "$flag" in
+        d) SHOW_DIFF=1 ;;
+        s) SUPPRESS_DESTINATION_ONLY_WARNINGS=1 ;;
+        n) FILE_PATH_ONLY=1 ;;
+	*) ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+dir1=${1%/}
+dir2=${2%/}
+
+if [ -z "$dir1" ] || [ -z "$dir2" ]; then
+    echo "2 directory paths must be passed in"
+    exit 1;
+fi
+
+diff -qr "$dir1" "$dir2" -x ".git" | {
+    while IFS= read -r line
+    do
+        if [[ $line =~ (^Files (.*) and (.*) differ) ]]; then
+            file1=${BASH_REMATCH[2]}
+            file2=${BASH_REMATCH[3]}
+
+            if [[ $FILE_PATH_ONLY -gt 0 ]]; then
+                echo "${file1//$dir1\//}"
+            elif [[ $SHOW_DIFF -gt 0 ]]; then
+                echo "diff -b $file1 $file2"
+                echo "$(diff -b $file1 $file2)"
+            else
+                echo "diff -b $file1 $file2"
+            fi
+        elif [[ $line =~ (^Only in (${dir1}\/(.*)?): (.*)) ]]; then
+            path=${BASH_REMATCH[2]}
+            subpath=${BASH_REMATCH[3]}
+            file=${BASH_REMATCH[4]}
+
+            sourcefilepath=$path/$file
+            destinationfilepath=${dir2}/${subpath}/${file}
+
+            if [[ $FILE_PATH_ONLY -gt 0 ]]; then
+                echo "${subpath}/${file}"
+            else
+                echo "cp $sourcefilepath $destinationfilepath"
+            fi
+        elif [[ $line =~ (^Only in ${dir2}) ]] && [ $SUPPRESS_DESTINATION_ONLY_WARNINGS -gt 0 ]; then
+            continue
+        else
+            echo "$line"
+        fi
+    done
+}

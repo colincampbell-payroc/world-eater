@@ -128,14 +128,26 @@ sub get_all {
             },
         ],
         applications => [
-            {   name        => 'batch_upload_admin',
-                repo_url    => 'git@github.com:payroc/caledon-ui-glxairadmin.git',
-                server      => 'adminweb',
-                path        => '/home/batchupload/batch_upload_admin',
-                ignore_list => [qw{ log session storage }]
+            {   name               => 'batch_upload_admin',
+                repo_url           => 'git@github.com:payroc/caledon-ui-glxairadmin.git',
+                repo_sub_directory => '',
+                server_name        => 'adminweb',
+                path_on_server     => '/home/batchupload/batch_upload_admin',
+                ignore_list        => [qw{ log session storage }]
+            },
+            {   name               => 'discover-portal',
+                repo_url           => 'git@github.com:payroc/cal-app-dss.git',
+                repo_sub_directory => '/src/caledon-ui-discover_portal',
+                server_name        => 'discover-portal',
+                path_on_server     => '/home/web_portal',
+                extra_paths        => [qw{ /var/www }],
+                ignore_list        =>
+                    [qw{ apache2.info check_images cgi/statement-reports/statements cgi/tmp_pdf csv_reports keys log log-old pdf_docs www/documents }]
             }
         ],
-        applications_ignore_list => [qw{ *.old }]
+        applications_ignore_list => [
+            qw{ *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t }
+        ]
     };
 }
 
