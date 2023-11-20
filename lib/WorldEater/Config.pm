@@ -8,7 +8,7 @@ sub get_all {
         directories => {
             adminweb => [
                 qw{
-                    /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
+                    /home/apinotification /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
                     /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
                 }
             ],
