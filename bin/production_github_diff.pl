@@ -37,7 +37,7 @@ foreach my $application ( @{ $config{applications} } ) {
     my $exclude_flags = join( ' ', map {"--exclude '$_'"} @ignore_list );
 
 # warn
-#     "rsync -vvv -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}";
+#     "rsync -vn --progress -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}";
 # next;
 
     my ( $stdout, $stderr ) = capture {

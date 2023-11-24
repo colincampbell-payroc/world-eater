@@ -934,43 +934,29 @@ sub get_all {
                 path_on_server     => '/home/zuul/zuul',
                 ignore_list        => [qw{  }]
             },
-            {   name               => 'glxair_api',
-                repo_url           => 'git@github.com:payroc/caledon-api-glxair.git',
-                repo_sub_directory => '',
-                server_name        => 'glxair',
-                path_on_server     => '/home/www-data',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'hsm_server',
-                repo_url           => 'git@github.com:payroc/Caledon-HSM-HSMServer.git',
-                repo_sub_directory => '',
-                server_name        => 'hsm',
-                path_on_server     => '/home/hsm/hsm',
-                ignore_list        => [qw{  }]
-            },
             {   name               => 'lantrans',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
                 repo_sub_directory => '/src/lantrans',
                 repo_branch        => 'main',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ archive certs conf log mcf old-support-stuff output *.cfg *.gpg *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
             },
             {   name               => 'lantrans_support',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/lantrans',
+                repo_sub_directory => '/src/lantrans/lantrans-support',
                 repo_branch        => 'main',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans/lantrans-support',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ old-support-stuff *.cfg *.log *.lt3-production }]
             },
             {   name               => 'lantrans_preauth_purge',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
                 repo_sub_directory => '/src/lantrans/preauth-purge',
                 repo_branch        => 'main',
                 server_name        => 'lt3',
-                path_on_server     => '/home/lantrans/preauth-pruge',
-                ignore_list        => [qw{  }]
+                path_on_server     => '/home/lantrans/preauth-purge',
+                ignore_list        => [qw{ conf log }]
             },
             {   name               => 'lantrans_unsettled_batch_report',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -978,29 +964,21 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans/unsettled-batch-report',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf log output }]
             },
             {   name               => 'padapi',
                 repo_url           => 'git@github.com:payroc/caledon-api-pad.git',
                 repo_sub_directory => '',
                 server_name        => 'pad',
                 path_on_server     => '/home/padapi/padapi',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf keys log }]
             },
             {   name               => 'convfee',
                 repo_url           => 'git@github.com:payroc/caledon-api-conveniencefees.git',
                 repo_sub_directory => '',
                 server_name        => 'portal',
                 path_on_server     => '/home/www-data/convfee',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'documentation',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/client_documentation',
-                repo_branch        => 'main',
-                server_name        => 'portal',
-                path_on_server     => '/home/webdoc/documentation/current',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf log }]
             },
             {   name               => 'dbsync_boarding2api',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -1008,7 +986,7 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'q',
                 path_on_server     => '/home/dbsync/boarding2api_sync',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ cfg log }]
             },
             {   name               => 'dbsync_transaction',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -1016,7 +994,7 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'q',
                 path_on_server     => '/home/dbsync/dbsync',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf logs sync_files  }]
             },
             {   name               => 'dbsync_portaldb',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -1024,75 +1002,75 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'q',
                 path_on_server     => '/home/dbsync/portaldbsync',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf data log }]
             },
             {   name               => 'dbsync_boarding_schema',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
                 repo_sub_directory => '/src/dbsync/boarding_schema',
                 repo_branch        => 'main',
-                server_name        => '10.10.1.82    # q2',
+                server_name        => '10.10.1.82', # q2
                 path_on_server     => '/home/dbsync/boarding_sync',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ *.dump *.log }]
             },
             {   name               => 'repay_rps_client_interface',
                 repo_url           => 'git@github.com:payroc/Caledon-Repay-rps_client_interface.git',
                 repo_sub_directory => '',
                 server_name        => 'repay-12',
                 path_on_server     => '/home/repay/rps_client_interface',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf logs var }]
             },
             {   name               => 'repay_rps_scheduler',
                 repo_url           => 'git@github.com:payroc/Caledon-Repay-rps_scheduler.git',
                 repo_sub_directory => '',
                 server_name        => 'repay-12',
                 path_on_server     => '/home/repay/rps_scheduler',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf log var }]
             },
             {   name               => 'trans-risk',
                 repo_url           => 'git@github.com:payroc/Caledon-CardPaymentRisk.git',
                 repo_sub_directory => '',
                 server_name        => 'repay-12',
                 path_on_server     => '/home/trans-risk/trans-risk',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf logs* var }]
             },
             {   name               => 'hpp',
                 repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv1.git',
-                repo_sub_directory => '',
+                repo_sub_directory => 'CCSWebPP',
                 server_name        => 'step1',
                 path_on_server     => '/home/hpp/CCSWebPP',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf }]
             },
             {   name               => 'hppv3',
                 repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv3.git',
-                repo_sub_directory => '',
+                repo_sub_directory => 'CCSHPP',
                 server_name        => 'step1',
                 path_on_server     => '/home/hppv3/CCSHPP',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs var }]
             },
-            {   name               => 'report',
+            {   name               => 'tokenator_report',
                 repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Report.git',
                 repo_sub_directory => '',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/report',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ files logs outbox }]
             },
             {   name               => 'tokenator_bin',
                 repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Bin.git',
                 repo_sub_directory => '',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/tokenator/bin',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ *.log }]
             },
             {   name               => 'tokenator',
                 repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Tokenator.git',
                 repo_sub_directory => '',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/tokenator/tokenator',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ conf var logs* keys* }]
             },
         ],
         applications_ignore_list => [
-            qw{ *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+            qw{ *~ *.swp *.tar.gz *.tgz *.gz *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
                 *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn bin/nohup.out }
         ]
     };
