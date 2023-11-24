@@ -9,16 +9,17 @@ sub extract_parts {
     my $repo_url;
     my $branch;
     my $sub_directory;
-    if ( $raw_url =~ /(github.com\/payroc\/.*)/ ) {
+    if ( $raw_url =~ /(github.com\/.*)/ ) {
         $repo_url = $1;
 
         $repo_url = 'git@' . $repo_url;
 
-        $repo_url =~ s/github.com\/payroc/github.com:payroc/;
+        $repo_url =~ s/github.com\/([\w-]+)\//github.com:$1\//;
 
         ( $repo_url, $branch ) = split( /tree/, $repo_url );
 
         $repo_url =~ s/\/$//;
+        $repo_url .= '.git';
 
         if ( defined($branch) ) {
             $branch =~ s/^\///;

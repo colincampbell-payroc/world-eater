@@ -15,9 +15,9 @@ subtest 'extract_parts' => sub {
 
         my ( $url, $branch, $sub_directory ) = WorldEater::RepoUrl::extract_parts($repo_url);
 
-        is( $url,           'git@github.com:payroc/Caledon-ApiNotification', 'should return the ssh url for the repo' );
-        is( $branch,        'master',                                        'should return branch name from the raw url' );
-        is( $sub_directory, '/anpweb',                                       'should return the sub directory from the raw url' );
+        is( $url,           'git@github.com:payroc/Caledon-ApiNotification.git', 'should return the ssh url for the repo' );
+        is( $branch,        'master',                                            'should return branch name from the raw url' );
+        is( $sub_directory, '/anpweb',                                           'should return the sub directory from the raw url' );
     };
 
     subtest 'for a URL containing a branch' => sub {
@@ -25,9 +25,9 @@ subtest 'extract_parts' => sub {
 
         my ( $url, $branch, $sub_directory ) = WorldEater::RepoUrl::extract_parts($repo_url);
 
-        is( $url,           'git@github.com:payroc/Caledon-ApiNotification', 'should return the ssh url for the repo' );
-        is( $branch,        'p921_API_Notification_Processes_test',          'should return branch name from the raw url' );
-        is( $sub_directory, undef,                                           'should return undef for the sub directory' );
+        is( $url,           'git@github.com:payroc/Caledon-ApiNotification.git', 'should return the ssh url for the repo' );
+        is( $branch,        'p921_API_Notification_Processes_test',              'should return branch name from the raw url' );
+        is( $sub_directory, undef,                                               'should return undef for the sub directory' );
     };
 
     subtest 'for a URL NOT containing a branch' => sub {
@@ -35,10 +35,21 @@ subtest 'extract_parts' => sub {
 
         my ( $url, $branch, $sub_directory ) = WorldEater::RepoUrl::extract_parts($repo_url);
 
-        is( $url,           'git@github.com:payroc/Caledon-ApiNotification', 'should return the ssh url for the repo' );
-        is( $branch,        undef,                                           'should return undef for the branch name' );
-        is( $sub_directory, undef,                                           'should return undef for the sub directory' );
+        is( $url,           'git@github.com:payroc/Caledon-ApiNotification.git', 'should return the ssh url for the repo' );
+        is( $branch,        undef,                                               'should return undef for the branch name' );
+        is( $sub_directory, undef,                                               'should return undef for the sub directory' );
     };
+
+    subtest 'for a repo not in the payroc org' => sub {
+        my $repo_url = 'https://github.com/andrewclark-payroc/KPI';
+
+        my ( $url, $branch, $sub_directory ) = WorldEater::RepoUrl::extract_parts($repo_url);
+
+        is( $url,           'git@github.com:andrewclark-payroc/KPI.git', 'should return the ssh url for the repo' );
+        is( $branch,        undef,                                       'should return undef for the branch name' );
+        is( $sub_directory, undef,                                       'should return undef for the sub directory' );
+    };
+
 };
 
 done_testing();
