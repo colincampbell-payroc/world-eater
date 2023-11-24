@@ -8,6 +8,8 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use WorldEater::Config;
 
+my $remote_user = $ARGV[0] || die "You must specify a remote user eg `./production_github_diff.pl ccampbell`";
+
 `rm -rf $FindBin::Bin/../code`;
 mkdir "$FindBin::Bin/../code";
 mkdir "$FindBin::Bin/../code/production";
@@ -30,17 +32,17 @@ foreach my $application ( @{ $config{applications} } ) {
     my $exclude_flags = join( ' ', map {"--exclude '$_'"} @ignore_list );
 
 # warn
-#     "rsync -vvv -r $exclude_flags -e \"ssh -t ccampbell\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}";
+#     "rsync -vvv -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}";
 # next;
-    `rsync -r $exclude_flags -e "ssh -t ccampbell\@bounce.caledoncard.com ssh -t" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}`;
+    `rsync -r $exclude_flags -e "ssh -t $remote_user\@bounce.caledoncard.com ssh -t" $application->{server_name}:$application->{path_on_server}/ $FindBin::Bin/../code/production/$application->{name}`;
 
     if ( exists( $application->{extra_paths} ) ) {
         foreach my $path ( @{ $application->{extra_paths} } ) {
 
 # warn
-#     "rsync -vvv -r $exclude_flags -e \"ssh -t ccampbell\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}";
+#     "rsync -vvv -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}";
 
-            `rsync -r $exclude_flags -e "ssh -t ccampbell\@bounce.caledoncard.com ssh -t" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}`;
+            `rsync -r $exclude_flags -e "ssh -t $remote_user\@bounce.caledoncard.com ssh -t" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}`;
         }
     }
 
