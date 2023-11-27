@@ -134,7 +134,7 @@ sub get_all {
                 repo_branch        => 'master',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/apinotification/apiweb',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ log html }]
             },
             {   name               => 'batch_upload_admin',
                 repo_url           => 'git@github.com:payroc/caledon-ui-glxairadmin.git',
@@ -386,7 +386,7 @@ sub get_all {
                 repo_sub_directory => '',
                 server_name        => 'batchmaster',
                 path_on_server     => '/home/ccs/inbox_monitor',
-                ignore_list        => [qw{ log }]
+                ignore_list        => [qw{ log *.log }]
             },
             {   name               => 'inflight_batch',
                 repo_url           => 'git@github.com:payroc/Caledon-Batch-InFlightBatch.git',
@@ -394,27 +394,6 @@ sub get_all {
                 server_name        => 'batchmaster',
                 path_on_server     => '/home/ccs/inflight_batch',
                 ignore_list        => [qw{ archive inbox keys logs quarantine reject var }]
-            },
-            {   name               => 'blacklist-klm',
-                repo_url           => 'git@github.com:payroc/Caledon-Blacklist-KLM.git',
-                repo_sub_directory => '',
-                server_name        => 'batchmaster',
-                path_on_server     => '/home/ccs/klm_blacklist',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'pansonic-ife',
-                repo_url           => 'git@github.com:payroc/Caledon-Batch-PanasonicIFE.git',
-                repo_sub_directory => '',
-                server_name        => 'batchmaster',
-                path_on_server     => '/home/ccs/panasonic-ife',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'sts_batch',
-                repo_url           => 'git@github.com:payroc/Caledon-Batch-STSBatch.git',
-                repo_sub_directory => '',
-                server_name        => 'batchmaster',
-                path_on_server     => '/home/ccs/sts_batch',
-                ignore_list        => [qw{  }]
             },
             {   name               => 'hsm_client',
                 repo_url           => 'git@github.com:payroc/Caledon-HSM-HSMClient.git',
@@ -429,7 +408,7 @@ sub get_all {
                 server_name        => 'batchmaster',
                 path_on_server     => '/home/mcrd/parseIPMandTsys',
                 ignore_list        => [
-                    qw{ mCard/perl/archive mCard/perl/in_files mCard/perl/in_files_prod mCard/perl/in_tsys mCard/perl/logs mCard/perl/logs-old mCard/perl/rej mCard/perl/TEST mCard/perl/test_files Tsys/archives Tsys/logs Tsys/send_to_tsys Tsys/sent_to_tsys_BKP Tsys/crontab.txt PROD keys }
+                    qw{ mCard/perl/archive mCard/perl/in_files mCard/perl/in_files_prod mCard/perl/in_tsys mCard/perl/logs mCard/perl/logs-old mCard/perl/rej mCard/perl/TEST mCard/perl/test_files Tsys/archives Tsys/logs Tsys/send_to_tsys Tsys/send_to_tsys_BKP Tsys/crontab.txt PROD keys }
                 ]
             },
             {   name               => 'mipproxy',
@@ -619,35 +598,13 @@ sub get_all {
                 path_on_server     => '/home/ccs/dashboard_queue_processor',
                 ignore_list        => [qw{ log pri_bl_keys pri_keys pub_bl_keys pub_keys }]
             },
-            {   name               => 'l1batch_deposit',
-                repo_url           => 'git@github.com:payroc/Caledon-Batch-L1Batch.git',
-                repo_sub_directory => '',
-                server_name        => 'deposit',
-                path_on_server     => '/home/ccs/l1batch',
-                ignore_list        => [qw{ archive inbox logs outbox reject var }]
-            },
-            {   name               => 'l23batch_deposit',
-                repo_url           => 'git@github.com:payroc/Caledon-Batch-L23Batch.git',
-                repo_sub_directory => '/l23batch',
-                repo_branch        => 'master',
-                server_name        => 'deposit',
-                path_on_server     => '/home/ccs/l23batch',
-                ignore_list        => [qw{ archive inbox logs outbox reject var }]
-            },
-            {   name               => 'panasonic_ife',
-                repo_url           => 'git@github.com:payroc/Caledon-Batch-PanasonicIFE.git',
-                repo_sub_directory => '',
-                server_name        => 'deposit',
-                path_on_server     => '/home/ccs/panasonic-ife',
-                ignore_list        => [qw{  }]
-            },
             {   name               => 'postgres_deposit_system',
                 repo_url           => 'git@github.com:payroc/caledon-service-deposit.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/ccs/postgres_deposit_system',
                 ignore_list        => [
-                    qw{ bin/deposits/backup_* bin/visa_clearing_sender/archive/out_file new_root proc var *.[0-9] *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] bin/visa_clearing_sender/archive bin/visa_clearing_sender/crontab.txt bin/visa_clearing_sender/etc bin/visa_clearing_sender/logs bin/visa_clearing_sender/out_file etc/certificates etc/keys *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] *.[0-9][0-9][0-9][0-9][0-9][0-9] *.backup_* }
+                    qw{ bin/deposits/backup_* bin/visa_clearing_sender/archive/out_file etc new_root proc var *.[0-9] *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] bin/visa_clearing_sender/archive bin/visa_clearing_sender/crontab.txt bin/visa_clearing_sender/etc bin/visa_clearing_sender/logs bin/visa_clearing_sender/out_file etc/certificates etc/keys *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] *.[0-9][0-9][0-9][0-9][0-9][0-9] *.backup_* }
                 ]
             },
             {   name               => 'tsys_incoming',
@@ -664,7 +621,7 @@ sub get_all {
                 server_name        => 'deposit',
                 path_on_server     => '/home/ccs/utilities',
                 ignore_list        => [
-                    qw{ batchmaster_reports/reports level1_decline_retry_daily/output transaction_retries_any/logs transaction_retries_declines/logs transaction_retries_declines_easyhome/logs guestlogix_duplicates/logs guestlogix_retries_system_failures/logs *.[0-9] Dashboard_Demo_Merchants_Test_Trx/logs  }
+                    qw{ batchmaster_reports/reports batchmaster_reports/logs decryptomatic/log level1_decline_retry_daily/logs moneris_switch/logs lantrans_ecard_keygen level1_decline_retry_daily/output transaction_retries_any/logs transaction_retries_declines/logs transaction_retries_declines_easyhome/logs guestlogix_duplicates/logs guestlogix_retries_system_failures/logs *.[0-9] Dashboard_Demo_Merchants_Test_Trx/logs  }
                 ]
             },
             {   name               => 'ccs',
@@ -672,22 +629,7 @@ sub get_all {
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/CCS',
-                ignore_list        => [qw{ 230518.fdms5043.01.gpg *.log_* }]
-            },
-            {   name               => 'diners_memo_builder',
-                repo_url           => 'git@github.com:payroc/caledon-service-deposit.git',
-                repo_sub_directory => '',
-                server_name        => 'deposit',
-                path_on_server     => '/home/deposit/diners_memo_builder',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'transaction_export',
-                repo_url           => 'git@github.com:payroc/Caledon-Deposit-TransactionExport.git',
-                repo_sub_directory => '/transaction_export',
-                repo_branch        => 'master',
-                server_name        => 'deposit',
-                path_on_server     => '/home/deposit/transaction_export',
-                ignore_list        => [qw{ logs outbox }]
+                ignore_list        => [qw{ 230518.fdms5043.01.gpg *.log_* bin/logs }]
             },
             {   name               => 'ssh-forcecommand.pl',
                 repo_url           => 'git@github.com:payroc/caledon-service-depositutilities.git',
@@ -749,17 +691,23 @@ sub get_all {
             },
             {   name               => 'pad_deposit',
                 repo_url           => 'git@github.com:payroc/caledon-service-padbin.git',
-                repo_sub_directory => '',
+                repo_sub_directory => '/pad',
+                repo_branch        => 'release',
                 server_name        => 'deposit',
                 path_on_server     => '/home/pad',
-                ignore_list        => [qw{ files log log_old session session_pwd_retrieving }]
+                ignore_list        => [
+                    qw{ files logs keys maintenance/log perl/archive perl/BMO_rejects perl/BMO_reports perl/chq_icl_rejects perl/chq_icl_reports perl/chq_img perl/chq_in perl/chq_rejects perl/chq_reports perl/chq_to_be_sent perl/EFTPayment_rejects perl/EFTPayment_reports perl/EFTPayment_to_be_sent perl/EFT_to_be_sent perl/in perl/in_v2 perl/log perl/rej perl/test_in perl/worldnet_reports report/excel_report report/merch_brief_rpt report/outstanding_trans_report reports temp test tmp *.rnd }
+                ]
             },
-            {   name               => 'automation',
+            {   name               => 'report_automation',
                 repo_url           => 'git@github.com:payroc/caledon-utility-reportautomation.git',
-                repo_sub_directory => '',
+                repo_sub_directory => 'reporting',
+                repo_branch        => 'release',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/automation/reporting',
-                ignore_list        => [qw{  }]
+                ignore_list        => [
+                    qw{ mcf_setups/archive mcf_setups/log mcf_setups/reports visa_operating_cert_visa_recur_vol/archive visa_operating_cert_visa_recur_vol/log visa_operating_cert_visa_recur_vol/reports }
+                ]
             },
             {   name               => 'dashboard_user_activity',
                 repo_url           => 'git@github.com:payroc/Caledon-Dashboard-UserActivityReport.git',
@@ -767,44 +715,52 @@ sub get_all {
                 repo_branch        => 'master',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/dashboard_user_activity',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs outbox }]
             },
             {   name               => 'guestlogix',
                 repo_url           => 'git@github.com:payroc/Caledon-GuestLogix-Reports.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/guestlogix',
-                ignore_list        => [qw{  }]
+                ignore_list        =>
+                    [qw{ rockymountaineer/log rockymountaineer/report southwest/log southwest/report swoop/log swoop/report westjet/log westjet/report }]
             },
             {   name               => 'hppv1_transaction_activity_report',
                 repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv1ActivityReporting.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/HPPv1_transaction_activity_report',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ log reports }]
             },
             {   name               => 'recurring_payment_-_activity_report',
                 repo_url           => 'git@github.com:payroc/Caledon-Repay-ActivityReport.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/recurring_payment/activity_report',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs logs-old reports }]
             },
             {   name               => 'recurring_payment_-_cc_expiry_monitors',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/report_recurring_payment',
+                repo_sub_directory => '/src/report_recurring_payment/cc_expiry_monitor',
                 repo_branch        => 'main',
-                extra_paths        => [qw{/home/report/recurring_payment/cc_2months_expiry_monitor}],
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/recurring_payment/cc_expiry_monitor',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ archives files logs pdf_reports }]
+            },
+            {   name               => 'recurring_payment_-_cc_2months_expiry_monitors',
+                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_sub_directory => '/src/report_recurring_payment/cc_2months_expiry_monitor',
+                repo_branch        => 'main',
+                server_name        => 'deposit',
+                path_on_server     => '/home/report/recurring_payment/cc_2months_expiry_monitor',
+                ignore_list        => [qw{ archives files logs logs-old reports }]
             },
             {   name               => 'recurring_payment_-_company_upcoming_payments',
                 repo_url           => 'git@github.com:payroc/Caledon-Repay-UpcomingPaymentsReport.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/recurring_payment/company_upcomingpayments',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs output }]
             },
             {   name               => 'recurring_payment_-_l1_decline_retry',
                 repo_url           => 'git@github.com:payroc/Caledon-Repay-L1DeclRetryDailyReport.git',
@@ -812,70 +768,73 @@ sub get_all {
                 repo_branch        => 'master',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/recurring_payment/level1_decline_retry_daily',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs output }]
             },
             {   name               => 'visa_report',
                 repo_url           => 'git@github.com:payroc/Caledon-Visa-tcn_kfiles.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/report/visa',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ activity/logs activity/reports html/logs html/reports logs }]
             },
             {   name               => 'tsys_peoples_reports',
                 repo_url           => 'git@github.com:payroc/Caledon-Acquiring-TsysReports.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/tsys/reports',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ archive inbox logs logs-old mip_inbox outbox reports_not_send_to_peoples_yet resend_reports }]
             },
-            {   name               => 'funding/billing_eft',
+            {   name               => 'funding-billing_eft',
                 repo_url           => 'git@github.com:payroc/Caledon-Acquiring-Merchant-Funding-EFT.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/tsys/',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ backup reports EFT/files EFT/logs }]
             },
             {   name               => 'visa_chargebacks',
                 repo_url           => 'git@github.com:payroc/Caledon-Acquiring-Visa-Chargebacks.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/visa/chargebacks',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs var }]
             },
             {   name               => 'visa_clearing_reconciliation',
                 repo_url           => 'git@github.com:payroc/Caledon-Acquiring-Visa-ClearingReconciliation.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/visa/clearing_reconciliation',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ logs var }]
             },
             {   name               => 'visa_incoming',
                 repo_url           => 'git@github.com:payroc/caledon-service-visaincoming.git',
-                repo_sub_directory => '',
+                repo_sub_directory => '/incoming',
                 server_name        => 'deposit',
                 path_on_server     => '/home/visa/incoming',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ archive EA_server_reports in_files logs rej reports }]
             },
             {   name               => 'risk_service',
                 repo_url           => 'git@github.com:payroc/caledon-service-risk.git',
-                repo_sub_directory => '',
+                repo_sub_directory => '/watcher',
+                repo_branch        => 'release',
                 server_name        => 'deposit',
                 path_on_server     => '/home/watcher',
-                ignore_list        => [qw{  }]
+                ignore_list        => [
+                    qw{ VisaFraudChargebackMonitoring excessive-auth-report/logs excessive-auth-report/reports fraudwatch/keys fraudwatch/old fraudwatch/logs risk-report-real-time-alert/logs }
+                ]
             },
             {   name               => 'visa_fraud_risk_monitor',
                 repo_url           => 'git@github.com:payroc/Caledon-Acquiring-Reporting-Risk-VisaFraudChargebackMonitoring.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/watcher/VisaFraudChargebackMonitoring',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ log reports ChangeControl Docs }]
             },
             {   name               => 'zuul_deposit',
                 repo_url           => 'git@github.com:payroc/Caledon-Egon-Zuul.git',
                 repo_sub_directory => '',
                 server_name        => 'deposit',
                 path_on_server     => '/home/zuul/zuul',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ bin/nohup.out log log-old var }]
             },
             {   name               => 'discover_admin',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
@@ -883,14 +842,14 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'dfsadmin',
                 path_on_server     => '/home/discadmin',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ etc keys logs padagreements/check_images padagreements/pdf_docs cgi/report_obsolete cgi/supplier_obsolete }]
             },
             {   name               => 'zuul_dfsadmin',
                 repo_url           => 'git@github.com:payroc/Caledon-Egon-Zuul.git',
                 repo_sub_directory => '',
                 server_name        => 'dfsadmin',
                 path_on_server     => '/home/zuul/zuul',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ bin/nohup.out log log-old var }]
             },
             {   name               => 'discover_portal',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
@@ -902,22 +861,23 @@ sub get_all {
                 ignore_list        =>
                     [qw{ apache2.info check_images cgi/statement-reports/statements cgi/tmp_pdf csv_reports keys log log-old pdf_docs www/documents }]
             },
-            {   name               => 'discover_portal_(staging)',
+            {   name               => 'discover_portal-staging',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
                 repo_sub_directory => '/src/caledon-ui-discover_portal',
                 repo_branch        => 'main',
                 extra_paths        => [qw{/var/www}],
-                server_name        => '192.168.168.22    # discover-portal-staging',
+                server_name        => '192.168.168.22',
                 path_on_server     => '/home/web_portal',
-                ignore_list        => [qw{  }]
+                ignore_list        =>
+                    [qw{ apache2.info check_images cgi/statement-reports/statements cgi/tmp_pdf csv_reports keys log log-old pdf_docs www/documents }]
             },
             {   name               => 'discover_ar_reports',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
                 repo_sub_directory => '/src/caledon-service-discover/billing/discover_monthly_reports_AR',
                 repo_branch        => 'main',
                 server_name        => 'discover-prod',
-                path_on_server     => '/home/billing',
-                ignore_list        => [qw{  }]
+                path_on_server     => '/home/billing/discover_monthly_reports_AR',
+                ignore_list        => [qw{ log reports reports_billing reports_quarterly }]
             },
             {   name               => 'discover_service',
                 repo_url           => 'git@github.com:payroc/cal-app-dss.git',
@@ -925,14 +885,16 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'discover-prod',
                 path_on_server     => '/home/discover',
-                ignore_list        => [qw{  }]
+                ignore_list        => [
+                    qw{ apato3/ archive/ archive.bak/ archives/ call_report/archive call_report/reports call_report/source_csv call_report/zip_file cpa_fif/backups cpa_fif/data cpa_fif/downloads cpa_fif/logs disputes/logs disputes/reports files firstdata_tmp ftphand/gpg_keys ftphand/logs ftphand/temp keys log note_log_export problems.20160427 rbc_receiver_backlogfiles_tmp storage t/ var/ web_portal/check_images web_portal/log web_portal/pdf_docs web_portal/statements }
+                ]
             },
             {   name               => 'zuul_discover-prod',
                 repo_url           => 'git@github.com:payroc/Caledon-Egon-Zuul.git',
                 repo_sub_directory => '',
                 server_name        => 'discover-prod',
                 path_on_server     => '/home/zuul/zuul',
-                ignore_list        => [qw{  }]
+                ignore_list        => [qw{ bin/nohup.out log log-old var }]
             },
             {   name               => 'lantrans',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -940,7 +902,7 @@ sub get_all {
                 repo_branch        => 'main',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans',
-                ignore_list        => [qw{ archive certs conf log mcf old-support-stuff output *.cfg *.gpg *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
+                ignore_list => [qw{ archive certs conf log mcf old-support-stuff output *.cfg *.gpg *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
             },
             {   name               => 'lantrans_support',
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
@@ -1008,7 +970,7 @@ sub get_all {
                 repo_url           => 'git@github.com:payroc/cal-app-core.git',
                 repo_sub_directory => '/src/dbsync/boarding_schema',
                 repo_branch        => 'main',
-                server_name        => '10.10.1.82', # q2
+                server_name        => '10.10.1.82',                               # q2
                 path_on_server     => '/home/dbsync/boarding_sync',
                 ignore_list        => [qw{ *.dump *.log }]
             },
@@ -1071,7 +1033,8 @@ sub get_all {
         ],
         applications_ignore_list => [
             qw{ *~ *.swp *.tar.gz *.tgz *.gz *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-                *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn bin/nohup.out }
+                *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn bin/nohup.out
+                .gnupg .nano_history .netrc .pinerc .mc/history DEADJOE .dir *.log .aptitude/ }
         ]
     };
 }

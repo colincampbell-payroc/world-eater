@@ -61,7 +61,7 @@ foreach my $application ( @{ $config{applications} } ) {
         foreach my $path ( @{ $application->{extra_paths} } ) {
 
 # warn
-#     "rsync -vvv -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}";
+#     "rsync --dry-run -r $exclude_flags -e \"ssh -t $remote_user\@bounce.caledoncard.com ssh -t\" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}";
 
             `rsync -r $exclude_flags -e "ssh -t $remote_user\@bounce.caledoncard.com ssh -t" $application->{server_name}:$path $FindBin::Bin/../code/production/$application->{name}`;
         }
