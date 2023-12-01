@@ -31,7 +31,7 @@ sub get_all {
             ],
             dfsadmin                  => [qw{/home/discadmin /home/lansweeper /home/zuul}],
             'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
-            'discover-portal-staging' => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],
+            '192.168.168.22'          => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}], # discover-portal-staging
             'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
             glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
             hsm                       => [qw{/home/hsm /home/lansweeper}],
@@ -40,7 +40,7 @@ sub get_all {
             pad                       => [qw{ /home/padapi }],
             portal                    => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
             q                         => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            q2                        => [qw{ /home/dbsync }],
+            '10.10.1.82'              => [qw{ /home/dbsync }], # q2
             'repay-12'                => [qw{ /home/repay /home/trans-risk }],
             step1                     => [qw{ /home/hpp /home/hppv3 }],
             tokenator                 => [qw{ /home/report /home/tokenator }],

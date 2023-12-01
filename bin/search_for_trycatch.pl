@@ -16,14 +16,14 @@ my %config = %{ WorldEater::Config::get_all() };
 
 my @servers = keys %{ $config{directories} };
 
-my $index = 0;
-$index++ until $servers[$index] eq 'discover-portal-staging';
-splice( @servers, $index, 1 );
-$index = 0;
-$index++ until $servers[$index] eq 'q2';
-splice( @servers, $index, 1 );
+#my $index = 0;
+#$index++ until $servers[$index] eq 'discover-portal-staging';
+#splice( @servers, $index, 1 );
+#$index = 0;
+#$index++ until $servers[$index] eq 'q2';
+#splice( @servers, $index, 1 );
 
-foreach my $server (@servers) {
+foreach my $server (sort {lc($a) cmp lc($b)} @servers) {
     print "sshb $server\n";
 }
 
@@ -32,9 +32,12 @@ my $options      = join( ' ', @{ $config{trycatch_grep}->{options} } );
 
 $grep_command =~ s/\$options/$options/g;
 
-foreach my $server (@servers) {
+print "\n";
+foreach my $server (sort {lc($a) cmp lc($b)} @servers) {
+    print "\r" . (" " x 30) . "\r";
+    print "Checking: $server";
 
-    my $results = `ssh -t $remote_user\@bounce.caledoncard.com ssh -t $server '$grep_command'`;
+    my $results = `ssh -oLogLevel=QUIET -oBatchMode=yes -t $remote_user\@bounce.caledoncard.com ssh -oLogLevel=QUIET -oBatchMode=yes -t $server '$grep_command'`;
 
     if ($results) {
         my $outfile_path = "$FindBin::Bin/../trycatch_results/$server";
@@ -46,3 +49,5 @@ foreach my $server (@servers) {
     }
 }
 
+print "\r" . (" " x 30) . "\r";
+print "Done\n";
