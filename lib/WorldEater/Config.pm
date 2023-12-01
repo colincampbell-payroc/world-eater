@@ -127,6 +127,20 @@ sub get_all {
                 type   => 'ip',
             },
         ],
+        wkhtmltopdf_grep => {
+            command => 'grep $options wkhtmltopdf /home 2>/dev/null',
+            options => [
+                qw/
+                    -lr
+                    --include=*.cgi
+                    --include=*.fcgi
+                    --include=*.pl
+                    --include=*.pm
+                    --include=*.sh
+                    --include=*.bash
+                    /
+            ]
+        },
         applications => [
             {   name               => 'apiweb',
                 repo_url           => 'git@github.com:payroc/Caledon-ApiNotification.git',
