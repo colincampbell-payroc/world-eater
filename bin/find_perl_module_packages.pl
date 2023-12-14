@@ -8,9 +8,9 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use WorldEater::Config;
 
-my $remote_user = $ARGV[0] || die "You must specify a remote user eg `./search_for_trycatch.pl ccampbell`";
+my $remote_user = $ARGV[0] || die "You must specify a remote user eg `./$FindBin::Script ccampbell`";
 
-mkdir "$FindBin::Bin/../trycatch_results" unless -d "$FindBin::Bin/../trycatch_results";
+mkdir "$FindBin::Bin/../apt_perl_packages" unless -d "$FindBin::Bin/../apt_perl_packages";
 
 my %config = %{ WorldEater::Config::get_all() };
 
