@@ -6,44 +6,44 @@ use warnings;
 sub get_all {
     return {
         directories => {
-            adminweb => [
-                qw{
-                    /home/apinotification /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
-                    /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
-                }
-            ],
-            api         => [qw{/home/boardingapi /home/paymentapi}],
-            authproxy   => [qw{/home/authproxy}],
-            batchmaster => [qw{/home/bluefin /home/ccs /home/hsm /home/lansweeper /home/mcrd /home/mip /home/monitor /home/postgres /home/visa /home/zuul}],
-            ccs1        => [
-                qw{
-                    /home/abbas /home/backup /home/checkvpn /home/codereview /home/htmlstats /home/lansweeper /home/mip /home/reports /home/rsnapp
-                    /home/tsys /home/watcher /home/wiki/
-                }
-            ],
-            clortho   => [qw{/home/clortho /home/lansweeper}],
-            dashboard => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
-            deposit   => [
-                qw{
-                    /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun
-                    /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
-                }
-            ],
-            dfsadmin                  => [qw{/home/discadmin /home/lansweeper /home/zuul}],
-            'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
-            '192.168.168.22'          => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}], # discover-portal-staging
-            'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
-            glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
-            hsm                       => [qw{/home/hsm /home/lansweeper}],
+            #adminweb => [
+            #    qw{
+            #        /home/apinotification /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
+            #        /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /home/zuul /usr/lib/cgi-bin
+            #    }
+            #],
+            #api         => [qw{/home/boardingapi /home/paymentapi}],
+            #authproxy   => [qw{/home/authproxy}],
+            #batchmaster => [qw{/home/bluefin /home/ccs /home/hsm /home/lansweeper /home/mcrd /home/mip /home/monitor /home/postgres /home/visa /home/zuul}],
+            #ccs1        => [
+            #    qw{
+            #        /home/abbas /home/backup /home/checkvpn /home/codereview /home/htmlstats /home/lansweeper /home/mip /home/reports /home/rsnapp
+            #        /home/tsys /home/watcher /home/wiki/
+            #    }
+            #],
+            #clortho   => [qw{/home/clortho /home/lansweeper}],
+            #dashboard => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
+            #deposit   => [
+            #    qw{
+            #        /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun
+            #        /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
+            #    }
+            #],
+            #dfsadmin                  => [qw{/home/discadmin /home/lansweeper /home/zuul}],
+            #'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
+            #'192.168.168.22'          => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}], # discover-portal-staging
+            #'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
+            #glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
+            #hsm                       => [qw{/home/hsm /home/lansweeper}],
             lt3                       => [qw{ /home/cardinfo /home/lantrans }],
-            lt3shared                 => [qw{ /home/lantrans }],
-            pad                       => [qw{ /home/padapi }],
-            portal                    => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
-            q                         => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            '10.10.1.82'              => [qw{ /home/dbsync }], # q2
-            'repay-12'                => [qw{ /home/repay /home/trans-risk }],
-            step1                     => [qw{ /home/hpp /home/hppv3 }],
-            tokenator                 => [qw{ /home/report /home/tokenator }],
+            #lt3shared                 => [qw{ /home/lantrans }],
+            #pad                       => [qw{ /home/padapi }],
+            #portal                    => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            #q                         => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            #'10.10.1.82'              => [qw{ /home/dbsync }], # q2
+            #'repay-12'                => [qw{ /home/repay /home/trans-risk }],
+            #step1                     => [qw{ /home/hpp /home/hppv3 }],
+            #tokenator                 => [qw{ /home/report /home/tokenator }],
         },
         grep => {
             command => 'grep',
@@ -624,47 +624,47 @@ sub get_all {
             #    path_on_server     => '/home/ccs/dashboard_queue_processor',
             #    ignore_list        => [qw{ log pri_bl_keys pri_keys pub_bl_keys pub_keys }]
             #},
-            {   name               => 'postgres_deposit_system',
-                repo_url           => 'git@github.com:payroc/caledon-service-deposit.git',
-                repo_sub_directory => '',
-                repo_branch        => 'sync-production-to-git',
-                server_name        => 'deposit',
-                path_on_server     => '/home/ccs/postgres_deposit_system',
-                ignore_list        => [
-                    qw{
-                        archive
-                        backup_20111027
-                        DB.old_deposit_server
-                        etc
-                        new_root
-                        proc
-                        var
-                        *.[0-9]
-                        *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
-                        *.[0-9][0-9][0-9][0-9][0-9][0-9]
-                        *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-                        *.backup_*
-                        *.backup[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-                        *.lck
-                        *.log
-                        *.out
-                        *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-                        bin/deposits/backup_*
-                        bin/deposits/campbell_*
-                        bin/deposits/donotrun_*
-                        bin/deposits/norun_*
-                        bin/deposits/old_*
-                        bin/deposits/test_*
-                        bin/visa_clearing_sender/archive
-                        bin/visa_clearing_sender/crontab.txt
-                        bin/visa_clearing_sender/etc
-                        bin/visa_clearing_sender/logs
-                        bin/visa_clearing_sender/out_file
-                        etc/certificates
-                        etc/keys
-                    }
-                ]
-            },
+            #{   name               => 'postgres_deposit_system',
+            #    repo_url           => 'git@github.com:payroc/caledon-service-deposit.git',
+            #    repo_sub_directory => '',
+            #    repo_branch        => 'sync-production-to-git',
+            #    server_name        => 'deposit',
+            #    path_on_server     => '/home/ccs/postgres_deposit_system',
+            #    ignore_list        => [
+            #        qw{
+            #            archive
+            #            backup_20111027
+            #            DB.old_deposit_server
+            #            etc
+            #            new_root
+            #            proc
+            #            var
+            #            *.[0-9]
+            #            *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
+            #            *.[0-9][0-9][0-9][0-9][0-9][0-9]
+            #            *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+            #            *.backup_*
+            #            *.backup[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+            #            *.lck
+            #            *.log
+            #            *.out
+            #            *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+            #            bin/deposits/backup_*
+            #            bin/deposits/campbell_*
+            #            bin/deposits/donotrun_*
+            #            bin/deposits/norun_*
+            #            bin/deposits/old_*
+            #            bin/deposits/test_*
+            #            bin/visa_clearing_sender/archive
+            #            bin/visa_clearing_sender/crontab.txt
+            #            bin/visa_clearing_sender/etc
+            #            bin/visa_clearing_sender/logs
+            #            bin/visa_clearing_sender/out_file
+            #            etc/certificates
+            #            etc/keys
+            #        }
+            #    ]
+            #},
             #{   name               => 'tsys_incoming',
             #    repo_url           => 'git@github.com:payroc/Caledon-Acquiring-TSysDisputesVisaDeposit.git',
             #    repo_sub_directory => '/tsys_incoming',
