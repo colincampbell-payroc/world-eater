@@ -954,14 +954,15 @@ sub get_all {
             #    path_on_server     => '/home/zuul/zuul',
             #    ignore_list        => [qw{ bin/nohup.out log log-old var }]
             #},
-            #{   name               => 'lantrans',
-            #    repo_url           => 'git@github.com:payroc/cal-app-core.git',
-            #    repo_sub_directory => '/src/lantrans',
-            #    repo_branch        => 'main',
-            #    server_name        => 'lt3',
-            #    path_on_server     => '/home/lantrans',
-            #    ignore_list => [qw{ archive certs conf log mcf old-support-stuff output *.cfg *.gpg *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
-            #},
+            {   name               => 'lantrans',
+                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_sub_directory => '/src/lantrans',
+                #repo_branch        => 'main',
+                repo_branch        => 'task/cal2-lantrans-config',
+                server_name        => 'lt3',
+                path_on_server     => '/home/lantrans',
+                ignore_list => [qw{ archive certs log mcf old-support-stuff output *.gpg *.pgp *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
+            },
             #{   name               => 'lantrans_support',
             #    repo_url           => 'git@github.com:payroc/cal-app-core.git',
             #    repo_sub_directory => '/src/lantrans/lantrans-support',
