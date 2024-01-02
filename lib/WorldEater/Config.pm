@@ -1031,27 +1031,30 @@ sub get_all {
             #    path_on_server     => '/home/hppv3/CCSHPP',
             #    ignore_list        => [qw{ logs var }]
             #},
-            #{   name               => 'tokenator_report',
-            #    repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Report.git',
-            #    repo_sub_directory => '',
-            #    server_name        => 'tokenator',
-            #    path_on_server     => '/home/report',
-            #    ignore_list        => [qw{ files logs outbox }]
-            #},
-            #{   name               => 'tokenator_bin',
-            #    repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Bin.git',
-            #    repo_sub_directory => '',
-            #    server_name        => 'tokenator',
-            #    path_on_server     => '/home/tokenator/bin',
-            #    ignore_list        => [qw{ *.log }]
-            #},
-            #{   name               => 'tokenator',
-            #    repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Tokenator.git',
-            #    repo_sub_directory => '',
-            #    server_name        => 'tokenator',
-            #    path_on_server     => '/home/tokenator/tokenator',
-            #    ignore_list        => [qw{ conf var logs* keys* }]
-            #},
+            {   name               => 'tokenator_report',
+               repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+               repo_sub_directory => '/src/report',
+               repo_branch        => 'main',
+               server_name        => 'tokenator',
+               path_on_server     => '/home/report',
+               ignore_list        => [qw{ files logs outbox }]
+            },
+            {   name               => 'tokenator_bin',
+               repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+               repo_sub_directory => '/src/tokenator/bin',
+               repo_branch        => 'main',
+               server_name        => 'tokenator',
+               path_on_server     => '/home/tokenator/bin',
+               ignore_list        => [qw{ *.log }]
+            },
+            {   name               => 'tokenator',
+               repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+               repo_sub_directory => '/src/tokenator/tokenator',
+               repo_branch        => 'main',
+               server_name        => 'tokenator',
+               path_on_server     => '/home/tokenator/tokenator',
+               ignore_list        => [qw{ conf var logs* keys* }]
+            },
         ],
         applications_ignore_list => [
             qw{ *~ *.swp *.tar.gz *.tgz *.gz *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
