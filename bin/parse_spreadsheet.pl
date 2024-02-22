@@ -10,12 +10,12 @@ use lib "$FindBin::Bin/../lib";
 
 use WorldEater::RepoUrl;
 
-my $excel_file = "$FindBin::Bin/../data/SoftwareDiscovery.xlsx";
+my $excel_file = "$FindBin::Bin/../data/SoftwareDiscovery.xlsm";
 
 my $parser   = Spreadsheet::ParseXLSX->new;
 my $workbook = $parser->parse($excel_file);
 
-my $applications_sheet = $workbook->{Worksheet}[5];
+my $applications_sheet = $workbook->{Worksheet}[6];
 
 my $outfile_path = "$FindBin::Bin/../data/SoftwareDiscovery.txt";
 
@@ -32,7 +32,7 @@ foreach my $row ( 1 .. $applications_sheet->{MaxRow} ) {
     $name = lc($name);
     $name =~ s/ /_/g;
 
-    my $repo_url = $applications_sheet->{Cells}[$row][6]->{Val};
+    my $repo_url = $applications_sheet->{Cells}[$row][7]->{Val};
 
     next if !$repo_url || $repo_url eq 'not in git';
 
@@ -40,9 +40,9 @@ foreach my $row ( 1 .. $applications_sheet->{MaxRow} ) {
 
     my $server_name    = $applications_sheet->{Cells}[$row][0]->{Val};
     my $path_on_server = $applications_sheet->{Cells}[$row][4]->{Val};
-    my $ignore_list    = $applications_sheet->{Cells}[$row][7]->{Val};
+    my $ignore_list    = $applications_sheet->{Cells}[$row][6]->{Val};
 
-    my @parts = split( /\n/, $path_on_server );
+    my @parts = split( /\n/x, $path_on_server );
     $path_on_server = shift @parts;
     my $extra_paths = join( ' ', @parts );
 

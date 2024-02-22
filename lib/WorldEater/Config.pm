@@ -29,21 +29,21 @@ sub get_all {
                     /home/pad /home/report /home/support /home/tsys /home/visa /home/watcher /home/zuul
                 }
             ],
-            dfsadmin                  => [qw{/home/discadmin /home/lansweeper /home/zuul}],
-            'Discover-portal'         => [qw{/home/lansweeper /home/web_portal}],
-            '192.168.168.22'          => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}], # discover-portal-staging
-            'discover-prod'           => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
-            glxair                    => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
-            hsm                       => [qw{/home/hsm /home/lansweeper}],
-            lt3                       => [qw{ /home/cardinfo /home/lantrans }],
-            lt3shared                 => [qw{ /home/lantrans }],
-            pad                       => [qw{ /home/padapi }],
-            portal                    => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
-            q                         => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            '10.10.1.82'              => [qw{ /home/dbsync }], # q2
-            'repay-12'                => [qw{ /home/repay /home/trans-risk }],
-            step1                     => [qw{ /home/hpp /home/hppv3 }],
-            tokenator                 => [qw{ /home/report /home/tokenator }],
+            dfsadmin          => [qw{/home/discadmin /home/lansweeper /home/zuul}],
+            'Discover-portal' => [qw{/home/lansweeper /home/web_portal}],
+            '192.168.168.22'  => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],                                         # discover-portal-staging
+            'discover-prod'   => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/ /home/zuul/}],
+            glxair            => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
+            hsm               => [qw{/home/hsm /home/lansweeper}],
+            lt3               => [qw{ /home/cardinfo /home/lantrans }],
+            lt3shared         => [qw{ /home/lantrans }],
+            pad               => [qw{ /home/padapi }],
+            portal            => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
+            q                 => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
+            '10.10.1.82'      => [qw{ /home/dbsync }],                                                                           # q2
+            'repay-12'        => [qw{ /home/repay /home/trans-risk }],
+            step1             => [qw{ /home/hpp /home/hppv3 }],
+            tokenator         => [qw{ /home/report /home/tokenator }],
         },
         grep => {
             command => 'grep',
@@ -239,105 +239,65 @@ sub get_all {
                 path_on_server     => '/root',
                 ignore_list        => [qw{  }]
             },
-            {   name               => 'merch_on-boarding',
-                repo_url           => 'git@github.com:payroc/caledon-api-boarding.git',
-                repo_sub_directory => '/MerchOnBoarding',
-                repo_branch        => 'release',
+            {   name               => 'api-merch_on-boarding',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/boardingapi/MerchOnBoarding',
                 server_name        => 'api',
                 path_on_server     => '/home/boardingapi/MerchOnBoarding',
-                ignore_list        => [qw{ ApiIncomingAlert ApiUserSync MerchNotifier MerchOnBoarding_keys MerchOnBoarding_log }]
+                ignore_list        => [qw{ }]
             },
-            {   name               => 'api_incoming_alert',
-                repo_url           => 'git@github.com:payroc/Caledon-Boarding-ApiIncomingAlert.git',
-                repo_sub_directory => '/ApiIncomingAlert',
-                repo_branch        => 'master',
+            {   name               => 'api-api_incoming_alert',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/boardingapi/ApiIncomingAlert',
                 server_name        => 'api',
                 path_on_server     => '/home/boardingapi/ApiIncomingAlert',
                 ignore_list        => [qw{ log }]
             },
-            {   name               => 'api_user_sync',
-                repo_url           => 'git@github.com:payroc/Caledon-Boarding-ApiUserSync.git',
-                repo_sub_directory => '/ApiUserSync',
-                repo_branch        => 'master',
+            {   name               => 'api-api_user_sync',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/boardingapi/ApiUserSync',
                 server_name        => 'api',
                 path_on_server     => '/home/boardingapi/ApiUserSync',
                 ignore_list        => [qw{ log }]
             },
-            {   name               => 'merch_notifier',
-                repo_url           => 'git@github.com:payroc/Caledon-Boarding-Notifier.git',
-                repo_sub_directory => '/MerchNotifier',
-                repo_branch        => 'master',
+            {   name               => 'api-merch_notifier',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/boardingapi/MerchNotifier',
                 server_name        => 'api',
                 path_on_server     => '/home/boardingapi/MerchNotifier',
                 ignore_list        => [qw{ log }]
             },
-            {   name               => 'payment_api',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/payment_api',
-                repo_branch        => 'main',
+            {   name               => 'api-payment_api',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/paymentapi/paymentapi',
                 server_name        => 'api',
                 path_on_server     => '/home/paymentapi/paymentapi',
                 ignore_list        => [qw{ log log-old test user_files var }]
             },
-            {   name               => 'payment_api_monitor',
-                repo_url           => 'git@github.com:payroc/Caledon-PaymentApiMonitor.git',
-                repo_sub_directory => '',
+            {   name               => 'api-payment_api_monitor',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/paymentapi/paymentapi-monitor',
                 server_name        => 'api',
                 path_on_server     => '/home/paymentapi/paymentapi-monitor',
                 ignore_list        => [qw{ log log-old }]
             },
-            {   name               => 'pad_notifications',
-                repo_url           => 'git@github.com:payroc/Caledon-Pad-Notification.git',
-                repo_sub_directory => '',
+            {   name               => 'api-pad_notifications',
+                repo_url           => 'git@github.com:payroc/cal-app-api.git',
+                repo_sub_directory => '/src/paymentapi/Notification',
                 server_name        => 'api',
                 path_on_server     => '/home/paymentapi/Notification',
                 ignore_list        => [qw{ log log-old }]
             },
-            {   name               => 'amex_authproxy',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-Amex.git',
-                repo_sub_directory => '',
+            {   name               => 'authproxy-authproxy',
+                repo_url           => 'git@github.com:payroc/cal-app-authproxy.git',
+                repo_sub_directory => '/src/authproxy',
                 server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/amex-auth-proxy',
-                ignore_list        => [qw{ log log-verbose var }]
+                path_on_server     => '/home/authproxy',
+                ignore_list        => [qw{ monitor Monitors log log-verbose var }]
             },
-            {   name               => 'discover_authproxy',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-Discover.git',
-                repo_sub_directory => '',
-                server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/discover-auth-proxy',
-                ignore_list        => [qw{ log log-verbose var }]
-            },
-            {   name               => 'first_data_authproxy',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-FirstDataGMA.git',
-                repo_sub_directory => '',
-                server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/firstdatagma-auth-proxy',
-                ignore_list        => [qw{ log log-verbose var }]
-            },
-            {   name               => 'mastercard_authproxy',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-MasterCard.git',
-                repo_sub_directory => '',
-                server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/mastercard-auth-proxy',
-                ignore_list        => [qw{ log log-verbose var }]
-            },
-            {   name               => 'visa_authproxy',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-Visa.git',
-                repo_sub_directory => '',
-                server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/visa-auth-proxy',
-                ignore_list        => [qw{ log log-verbose var }]
-            },
-            {   name               => 'encrypt_logs',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-encrypt_logs.git',
-                repo_sub_directory => '',
-                server_name        => 'authproxy',
-                path_on_server     => '/home/authproxy/encrypt_logs',
-                ignore_list        => [qw{  }]
-            },
-            {   name               => 'authproxy_monitor',
-                repo_url           => 'git@github.com:payroc/Caledon-AuthProxy-Monitor.git',
-                repo_sub_directory => '',
+            {   name               => 'authproxy-authproxy-monitors',
+                repo_url           => 'git@github.com:payroc/cal-app-authproxy.git',
+                repo_sub_directory => '/src/authproxy/monitor',
                 server_name        => 'authproxy',
                 path_on_server     => '/home/authproxy/Monitors',
                 ignore_list        => [qw{ log }]
@@ -627,10 +587,42 @@ sub get_all {
             {   name               => 'postgres_deposit_system',
                 repo_url           => 'git@github.com:payroc/caledon-service-deposit.git',
                 repo_sub_directory => '',
+                repo_branch        => 'sync-production-to-git',
                 server_name        => 'deposit',
                 path_on_server     => '/home/ccs/postgres_deposit_system',
                 ignore_list        => [
-                    qw{ bin/deposits/backup_* bin/visa_clearing_sender/archive/out_file etc new_root proc var *.[0-9] *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] bin/visa_clearing_sender/archive bin/visa_clearing_sender/crontab.txt bin/visa_clearing_sender/etc bin/visa_clearing_sender/logs bin/visa_clearing_sender/out_file etc/certificates etc/keys *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] *.[0-9][0-9][0-9][0-9][0-9][0-9] *.backup_* }
+                    qw{
+                        archive
+                        backup_20111027
+                        DB.old_deposit_server
+                        etc
+                        new_root
+                        proc
+                        var
+                        *.[0-9]
+                        *.[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
+                        *.[0-9][0-9][0-9][0-9][0-9][0-9]
+                        *.back[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+                        *.backup_*
+                        *.backup[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+                        *.lck
+                        *.log
+                        *.out
+                        *.out[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+                        bin/deposits/backup_*
+                        bin/deposits/campbell_*
+                        bin/deposits/donotrun_*
+                        bin/deposits/norun_*
+                        bin/deposits/old_*
+                        bin/deposits/test_*
+                        bin/visa_clearing_sender/archive
+                        bin/visa_clearing_sender/crontab.txt
+                        bin/visa_clearing_sender/etc
+                        bin/visa_clearing_sender/logs
+                        bin/visa_clearing_sender/out_file
+                        etc/certificates
+                        etc/keys
+                    }
                 ]
             },
             {   name               => 'tsys_incoming',
@@ -922,44 +914,46 @@ sub get_all {
                 path_on_server     => '/home/zuul/zuul',
                 ignore_list        => [qw{ bin/nohup.out log log-old var }]
             },
-            {   name               => 'lantrans',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+            {   name               => 'lt3-lantrans',
+                repo_url           => 'git@github.com:payroc/cal-app-lantrans.git',
                 repo_sub_directory => '/src/lantrans',
-                repo_branch        => 'main',
+                repo_branch        => 'feature/cal-to-dc2',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans',
-                ignore_list => [qw{ archive certs conf log mcf old-support-stuff output *.cfg *.gpg *.log *.out *.err *.explain *.sqlpglog *.lt3-production }]
+                ignore_list        => [
+                    qw{ lantrans/archive lantrans/certs lantrans/log lantrans/lantrans-support lantrans/preauth-purge lantrans/unsettled-batch-report mcf old-support-stuff output *.gpg *.pgp *.log *.out *.err *.explain *.sqlpglog *.lt3-production }
+                ]
             },
-            {   name               => 'lantrans_support',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+            {   name               => 'lt3-lantrans_support',
+                repo_url           => 'git@github.com:payroc/cal-app-lantrans.git',
                 repo_sub_directory => '/src/lantrans/lantrans-support',
-                repo_branch        => 'main',
+                repo_branch        => 'feature/cal-to-dc2',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans/lantrans-support',
                 ignore_list        => [qw{ old-support-stuff *.cfg *.log *.lt3-production }]
             },
-            {   name               => 'lantrans_preauth_purge',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+            {   name               => 'lt3-preauth_purge',
+                repo_url           => 'git@github.com:payroc/cal-app-lantrans.git',
                 repo_sub_directory => '/src/lantrans/preauth-purge',
-                repo_branch        => 'main',
+                repo_branch        => 'feature/cal-to-dc2',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans/preauth-purge',
                 ignore_list        => [qw{ conf log }]
             },
-            {   name               => 'lantrans_unsettled_batch_report',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+            {   name               => 'lt3-unsettled_batch_report',
+                repo_url           => 'git@github.com:payroc/cal-app-lantrans.git',
                 repo_sub_directory => '/src/lantrans/unsettled-batch-report',
-                repo_branch        => 'main',
+                repo_branch        => 'feature/cal-to-dc2',
                 server_name        => 'lt3',
                 path_on_server     => '/home/lantrans/unsettled-batch-report',
                 ignore_list        => [qw{ conf log output }]
             },
-            {   name               => 'padapi',
-                repo_url           => 'git@github.com:payroc/caledon-api-pad.git',
-                repo_sub_directory => '',
+            {   name               => 'pad-padapi',
+                repo_url           => 'git@github.com:payroc/cal-app-padapi.git',
+                repo_sub_directory => '/src/padapi/padapi',
                 server_name        => 'pad',
                 path_on_server     => '/home/padapi/padapi',
-                ignore_list        => [qw{ conf keys log }]
+                ignore_list        => [qw{ keys log }]
             },
             {   name               => 'convfee',
                 repo_url           => 'git@github.com:payroc/caledon-api-conveniencefees.git',
@@ -1000,26 +994,19 @@ sub get_all {
                 path_on_server     => '/home/dbsync/boarding_sync',
                 ignore_list        => [qw{ *.dump *.log }]
             },
-            {   name               => 'repay_rps_client_interface',
-                repo_url           => 'git@github.com:payroc/Caledon-Repay-rps_client_interface.git',
-                repo_sub_directory => '',
+            {   name               => 'repay-repay',
+                repo_url           => 'git@github.com:payroc/cal-app-repay.git',
+                repo_sub_directory => '/src/repay',
                 server_name        => 'repay-12',
-                path_on_server     => '/home/repay/rps_client_interface',
-                ignore_list        => [qw{ conf logs var }]
+                path_on_server     => '/home/repay',
+                ignore_list        => [qw{ *.lock log logs rps_client_interface.12 rps_scheduler.12 logrotate.status nohup.out rps_scheduler/var }]
             },
-            {   name               => 'repay_rps_scheduler',
-                repo_url           => 'git@github.com:payroc/Caledon-Repay-rps_scheduler.git',
-                repo_sub_directory => '',
+            {   name               => 'repay-trans-risk',
+                repo_url           => 'git@github.com:payroc/cal-app-repay.git',
+                repo_sub_directory => '/src/trans-risk',
                 server_name        => 'repay-12',
-                path_on_server     => '/home/repay/rps_scheduler',
-                ignore_list        => [qw{ conf log var }]
-            },
-            {   name               => 'trans-risk',
-                repo_url           => 'git@github.com:payroc/Caledon-CardPaymentRisk.git',
-                repo_sub_directory => '',
-                server_name        => 'repay-12',
-                path_on_server     => '/home/trans-risk/trans-risk',
-                ignore_list        => [qw{ conf logs* var }]
+                path_on_server     => '/home/trans-risk',
+                ignore_list        => [qw{ logs* }]
             },
             {   name               => 'hpp',
                 repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv1.git',
@@ -1035,31 +1022,31 @@ sub get_all {
                 path_on_server     => '/home/hppv3/CCSHPP',
                 ignore_list        => [qw{ logs var }]
             },
-            {   name               => 'tokenator_report',
-                repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Report.git',
-                repo_sub_directory => '',
+            {   name               => 'tokenator-tokenator_report',
+                repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+                repo_sub_directory => '/src/report',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/report',
                 ignore_list        => [qw{ files logs outbox }]
             },
-            {   name               => 'tokenator_bin',
-                repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Bin.git',
-                repo_sub_directory => '',
+            {   name               => 'tokenator-tokenator_bin',
+                repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+                repo_sub_directory => '/src/tokenator/bin',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/tokenator/bin',
                 ignore_list        => [qw{ *.log }]
             },
-            {   name               => 'tokenator',
-                repo_url           => 'git@github.com:payroc/Caledon-Tokenator-Tokenator.git',
-                repo_sub_directory => '',
+            {   name               => 'tokenator-tokenator',
+                repo_url           => 'git@github.com:payroc/cal-app-tokenator.git',
+                repo_sub_directory => '/src/tokenator/tokenator',
                 server_name        => 'tokenator',
                 path_on_server     => '/home/tokenator/tokenator',
-                ignore_list        => [qw{ conf var logs* keys* }]
+                ignore_list        => [qw{ *.log }]
             },
         ],
         applications_ignore_list => [
             qw{ *~ *.swp *.tar.gz *.tgz *.gz *.old .bash_history .bash_logout .bashrc .cache .mysql_history .profile .selected_editor .ssh .vim .viminfo *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
-                *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn bin/nohup.out
+                *.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]* *.bk *.bk* *.bak crontab.txt *.new t crontab .joe_state .lesshst .pgpass .psql_history .subversion *.*~ *.svn bin/nohup.out
                 .gnupg .nano_history .netrc .pinerc .mc/history DEADJOE .dir *.log .aptitude/ }
         ]
     };
