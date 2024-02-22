@@ -23,6 +23,8 @@ foreach my $application ( @{ $config{applications} } ) {
     `rm -rf $FindBin::Bin/../code/production/$application->{name}`;
     `rm -rf $FindBin::Bin/../code/github/$application->{name}`;
 
+    next unless $application->{server_name} eq "deposit";
+
     my $branch = exists( $application->{repo_branch} ) ? "-b $application->{repo_branch}" : '';
 
     `git clone $branch $application->{repo_url} $FindBin::Bin/../code/github/$application->{name}`;
