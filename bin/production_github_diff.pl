@@ -23,7 +23,20 @@ foreach my $application ( @{ $config{applications} } ) {
     `rm -rf $FindBin::Bin/../code/production/$application->{name}`;
     `rm -rf $FindBin::Bin/../code/github/$application->{name}`;
 
-    next unless $application->{server_name} eq "deposit";
+    my %phase1_servers = (
+        api        => 1,
+        authproxy  => 1,
+        lt3        => 1,
+        pad        => 1,
+        'repay-12' => 1,
+        tokenator  => 1,
+    );
+
+    my %phase2_servers = ( deposit => 1, );
+
+    my %included_servers = %phase2_servers;
+
+    next unless exists $included_servers{ $application->{server_name} };
 
     my $branch = exists( $application->{repo_branch} ) ? "-b $application->{repo_branch}" : '';
 
