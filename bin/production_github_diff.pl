@@ -34,7 +34,9 @@ foreach my $application ( @{ $config{applications} } ) {
 
     my %phase2_servers = ( deposit => 1, );
 
-    my %included_servers = %phase2_servers;
+    my %phase3_servers = ( batchmaster => 1, );
+
+    my %included_servers = %phase3_servers;
 
     next unless exists $included_servers{ $application->{server_name} };
 
