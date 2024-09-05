@@ -8,8 +8,7 @@ sub get_all {
         directories => {
             adminweb => [
                 qw{
-                    /home/apinotification /home/batchupload /home/boarding /home/discoverportal /home/emailadmin /home/internalklmadmin /home/lantrans /home/mcf
-                    /home/monitor /home/pad /home/peoplestrust /home/reports /home/translookup /home/watcher /usr/lib/cgi-bin
+                    /home/apinotification /home/boarding /home/discoverportal /home/mcf /home/monitor /home/pad /home/translookup
                 }
             ],
             api         => [qw{/home/boardingapi /home/paymentapi}],
@@ -22,7 +21,7 @@ sub get_all {
                 }
             ],
             clortho   => [qw{/home/clortho /home/lansweeper}],
-            dashboard => [qw{/home/cardinfo /home/ccs /home/kanchan /home/lansweeper /home/ruchi /home/webdash /home/webdashadmin /home/www-data}],
+            dashboard => [qw{/home/webdash /home/webdashadmin}],
             deposit   => [
                 qw{
                     /home/acquiring /home/billing /home/cardinfo /home/CCS /home/ccs /home/deposit /home/lansweeper /home/mip /home/monitor /home/nightrun
@@ -31,16 +30,15 @@ sub get_all {
             ],
             dfsadmin          => [qw{/home/discadmin /home/lansweeper}],
             'Discover-portal' => [qw{/home/lansweeper /home/web_portal}],
-            '192.168.168.22'  => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],                                      # discover-portal-staging
+            '192.168.168.22'  => [qw{/home/lansweeper /home/web_portal /home/wwwfiles}],                             # discover-portal-staging
             'discover-prod'   => [qw{/home/billing/ /home/ccs/ /home/discover/ /home/lansweeper/ /home/support/}],
-            glxair            => [qw{/home/ccs /home/klm_blacklist /home/lansweeper /home/webglx /home/www-data /var/www}],
             hsm               => [qw{/home/hsm /home/lansweeper}],
             lt3               => [qw{ /home/cardinfo /home/lantrans }],
             lt3shared         => [qw{ /home/lantrans }],
             pad               => [qw{ /home/padapi }],
             portal            => [qw{ /home/cardinfo /home/www-data /home/webcvf /home/webdoc }],
             q                 => [qw{ /home/cardinfo /home/dbsync /home/htmlstats /home/maidrept }],
-            '10.10.1.82'      => [qw{ /home/dbsync }],                                                                        # q2
+            '10.10.1.82'      => [qw{ /home/dbsync }],                                                               # q2
             'repay-12'        => [qw{ /home/repay /home/trans-risk }],
             step1             => [qw{ /home/hpp /home/hppv3 }],
             tokenator         => [qw{ /home/report /home/tokenator }],
@@ -155,23 +153,17 @@ sub get_all {
         },
         applications => [
             {   name               => 'apiweb',
-                repo_url           => 'git@github.com:payroc/Caledon-ApiNotification.git',
-                repo_sub_directory => '/anpweb',
-                repo_branch        => 'master',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/apinotification/apiweb',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/apinotification/apiweb',
                 ignore_list        => [qw{ log html }]
             },
-            {   name               => 'batch_upload_admin',
-                repo_url           => 'git@github.com:payroc/caledon-ui-glxairadmin.git',
-                repo_sub_directory => '',
-                server_name        => 'adminweb',
-                path_on_server     => '/home/batchupload/batch_upload_admin',
-                ignore_list        => [qw{ log session storage }]
-            },
             {   name               => 'boarding',
-                repo_url           => 'git@github.com:payroc/caledon-ui-boarding.git',
-                repo_sub_directory => '',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/boarding',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/boarding',
                 ignore_list        => [
@@ -179,47 +171,48 @@ sub get_all {
                 ]
             },
             {   name               => 'boarding_api_auto_approval',
-                repo_url           => 'git@github.com:payroc/caledon-service-boarding-autoapproval.git',
-                repo_sub_directory => '/Boarding_api_auto_approval',
-                repo_branch        => 'release',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/boarding/Boarding_api_auto_approval',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/boarding/Boarding_api_auto_approval',
                 ignore_list        => [qw{ log }]
             },
             {   name               => 'discover_portal_admin',
-                repo_url           => 'git@github.com:payroc/cal-app-dss.git',
-                repo_sub_directory => '/src/caledon-ui-discover_portal_admin',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/discoverportal/caledon-ui-discover_portal_admin',
                 repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/discoverportal',
                 ignore_list        => [qw{ logs html/discadmin }]
             },
             {   name               => 'mcf',
-                repo_url           => 'git@github.com:payroc/caledon-ui-mcf.git',
-                repo_sub_directory => '',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/mcf',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
-                path_on_server     => '/home/mcf/mcflive',
+                path_on_server     => '/home/mcf',
                 ignore_list        => [qw{ log }]
             },
             {   name               => 'monitors',
-                repo_url           => 'git@github.com:payroc/Caledon-Monitors-Redundant.git',
-                repo_sub_directory => '/monitors',
-                repo_branch        => 'master',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/monitor/monitors',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/monitor/monitors',
                 ignore_list        => [qw{ logs }]
             },
             {   name               => 'pad_adminweb',
-                repo_url           => 'git@github.com:payroc/caledon-ui-padadmin.git',
-                repo_sub_directory => '/pad',
-                repo_branch        => 'release',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/pad/pad-admin',
+                repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/pad',
                 ignore_list        => [qw{ keys log }]
             },
             {   name               => 'translookup',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/transaction_lookup',
+                repo_url           => 'git@github.com:payroc/cal-app-adminweb.git',
+                repo_sub_directory => '/src/translookup/transaction_lookup',
                 repo_branch        => 'main',
                 server_name        => 'adminweb',
                 path_on_server     => '/home/translookup/prod',
@@ -375,16 +368,16 @@ sub get_all {
                 ignore_list        => [qw{ keys keys-available keys-enabled logs var }]
             },
             {   name               => 'dashboard',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/dashboard',
+                repo_url           => 'git@github.com:payroc/cal-app-dashboard.git',
+                repo_sub_directory => '/src/webdash/dashboard',
                 repo_branch        => 'main',
                 server_name        => 'dashboard',
                 path_on_server     => '/home/www-data/web_portal',
                 ignore_list        => [qw{ files log log_old session session_pwd_retrieving }]
             },
             {   name               => 'dashboard_admin',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
-                repo_sub_directory => '/src/dashboard_admin',
+                repo_url           => 'git@github.com:payroc/cal-app-dashboard.git',
+                repo_sub_directory => '/src/webdashadmin/dashboard_admin',
                 repo_branch        => 'main',
                 server_name        => 'dashboard',
                 path_on_server     => '/home/www-data/web_dashboard_admin',
@@ -909,14 +902,14 @@ sub get_all {
                 ignore_list        => [qw{ keys log }]
             },
             {   name               => 'convfee',
-                repo_url           => 'git@github.com:payroc/caledon-api-conveniencefees.git',
-                repo_sub_directory => '',
+                repo_url           => 'git@github.com:payroc/cal-app-portal.git',
+                repo_sub_directory => '/src/webcvf/convfee',
                 server_name        => 'portal',
                 path_on_server     => '/home/www-data/convfee',
                 ignore_list        => [qw{ conf log }]
             },
             {   name               => 'dbsync_boarding2api',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_url           => 'git@github.com:payroc/cal-app-que.git',
                 repo_sub_directory => '/src/dbsync/boarding2api',
                 repo_branch        => 'main',
                 server_name        => 'q',
@@ -924,7 +917,7 @@ sub get_all {
                 ignore_list        => [qw{ cfg log }]
             },
             {   name               => 'dbsync_transaction',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_url           => 'git@github.com:payroc/cal-app-que.git',
                 repo_sub_directory => '/src/dbsync/transaction',
                 repo_branch        => 'main',
                 server_name        => 'q',
@@ -932,7 +925,7 @@ sub get_all {
                 ignore_list        => [qw{ conf logs sync_files  }]
             },
             {   name               => 'dbsync_portaldb',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_url           => 'git@github.com:payroc/cal-app-que.git',
                 repo_sub_directory => '/src/dbsync/portaldb',
                 repo_branch        => 'main',
                 server_name        => 'q',
@@ -940,10 +933,10 @@ sub get_all {
                 ignore_list        => [qw{ conf data log }]
             },
             {   name               => 'dbsync_boarding_schema',
-                repo_url           => 'git@github.com:payroc/cal-app-core.git',
+                repo_url           => 'git@github.com:payroc/cal-app-que.git',
                 repo_sub_directory => '/src/dbsync/boarding_schema',
                 repo_branch        => 'main',
-                server_name        => '10.10.1.82',                               # q2
+                server_name        => '10.10.1.82',                              # q2
                 path_on_server     => '/home/dbsync/boarding_sync',
                 ignore_list        => [qw{ *.dump *.log }]
             },
@@ -962,15 +955,15 @@ sub get_all {
                 ignore_list        => [qw{ logs* }]
             },
             {   name               => 'hpp',
-                repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv1.git',
-                repo_sub_directory => 'CCSWebPP',
+                repo_url           => 'git@github.com:payroc/cal-app-hpp.git',
+                repo_sub_directory => '/src/hpp/CCSWebPP',
                 server_name        => 'step1',
                 path_on_server     => '/home/hpp/CCSWebPP',
                 ignore_list        => [qw{ conf }]
             },
             {   name               => 'hppv3',
-                repo_url           => 'git@github.com:payroc/Caledon-HPP-HPPv3.git',
-                repo_sub_directory => 'CCSHPP',
+                repo_url           => 'git@github.com:payroc/cal-app-hpp.git',
+                repo_sub_directory => '/src/hppv3/CCSHPP',
                 server_name        => 'step1',
                 path_on_server     => '/home/hppv3/CCSHPP',
                 ignore_list        => [qw{ logs var }]
